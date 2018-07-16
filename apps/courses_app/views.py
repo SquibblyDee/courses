@@ -4,25 +4,19 @@ from django.contrib import messages
 #  import our db
 from .models import Course
 
-
 def index(request):
+    # Index page just pulls and returns a query
     query = Course.objects.values('id', 'name', 'desc', 'created_at')
     return render(request,'courses_app/index.html', {'query' : query})
 
 def destroy(request, id):
-    print("WE INN DEESTRRROYYYY")
-    print("IDDDDD: ", id)
+    # Index page receives id and displays delete page
     query = Course.objects.filter(id=id)
-    # Deletes the row of the id that is passed in as a var and print success massage to server 
-    #User.objects.get(id=id).delete()
-    #print("DELETED USER RECORD: ", id)
     return render(request,'courses_app/destroy.html', {'query' : query})
 
 def processdestroy(request, id):
-    print("WE IN PROCESS DESTROYYYYY")
     # Deletes the row of the id that is passed in as a var and print success massage to server 
     Course.objects.get(id=id).delete()
-    print("DELETED USER RECORD: ", id)
     return redirect('/')
 
 def process(request, methods=['POST']):
@@ -45,8 +39,6 @@ def process(request, methods=['POST']):
         #write values to our User tables
         Course.objects.create(name=name, desc=desc)
         messages.success(request, "User table successfully updated")
-        # id = User.objects.get(name=name).id
         # redirect to a success route
-        # return redirect('/users/{}'.format()
         return redirect('/')
 

@@ -7,9 +7,9 @@ class UserManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
         if len(postData['name']) < 5:
-            errors["name"] = "First name should be at least 5 characters"
+            errors["name"] = "Name must be at least 5 characters"
         if len(postData['desc']) < 15:
-            errors["desc"] = "Last name should be at least 15 characters"
+            errors["desc"] = "Description must be at least 15 characters"
         return errors
 
 # This is our table

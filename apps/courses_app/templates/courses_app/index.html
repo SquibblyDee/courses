@@ -10,6 +10,13 @@
     <div class='container'>
         <h1>Add a new course</h1>
         <div class='the-form'>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags  %} style="color: red" class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <form action="/process" method='post'>
                 {% csrf_token %}
                 <div class="form-group row">
@@ -43,6 +50,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Loop through our query contents and ouput each key's value to a td -->
                     {% for row in query %}
                     <tr>
                         <td><a href=/users/{{row.id}}></a>{{row.name}}</a></td>

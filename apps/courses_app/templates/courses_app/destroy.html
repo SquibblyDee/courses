@@ -9,6 +9,7 @@
     <body>
         <div class="delete-page-container">
             <h2>Are you sure you want to delete the following course?</h2>
+            <!-- Output each key's value in the query-->
             {% for row in query %}
                 <h3>Name: {{row.name}}</h3>
                 <h3>Description: {{row.desc}}</h3>
