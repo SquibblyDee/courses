@@ -1,13 +1,18 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Delete a course</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-<body>
-    <h1>delete</h1>
-</body>
+    {% load staticfiles %}
+    <head>
+        <title>Delete a course</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'courses_app/css/styles.css' %}">
+    </head>
+    <body>
+    <h1>Are you sure you want to delete the following course?</h1>
+    {% for row in query %}
+        <h3>Name: {{row.name}}</h3>
+        <h3>Description: {{row.desc}}</h3>
+        <a style="border-right: 2px solid black;" href=/users/{{row.id}}/edit>No</a>
+        <a href=/users/{{row.id}}/destroy>Yes! I want to delete this</a>
+    {% endfor %}
+    </body>
 </html>

@@ -6,10 +6,10 @@ from django.db import models
 class UserManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
-        if len(postData['first_name']) < 3:
-            errors["first_name"] = "First name should be at least 3 characters"
-        if len(postData['last_name']) < 3:
-            errors["last_name"] = "Last name should be at least 3 characters"
+        if len(postData['name']) < 5:
+            errors["name"] = "First name should be at least 5 characters"
+        if len(postData['desc']) < 15:
+            errors["desc"] = "Last name should be at least 15 characters"
         return errors
 
 # This is our table
