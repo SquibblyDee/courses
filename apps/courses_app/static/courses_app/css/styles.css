@@ -1,5 +1,31 @@
 *{
     padding: 0px;
     margin: 0px;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
+}
+
+.container button{
+    margin-right: 21%;
+}
+
+button{
+    box-shadow: 3px 3px black !important;
+    outline: 2px solid black;
+    border-radius: 0px !important;
+}
+
+.delete-page-container{
+    text-align: center;
+}
+
+h3{
+    text-align: left;
+    margin-left: 8%;
+}
+
+.delete-page-container a{
+    margin: 5% 0% 0% 5%;
+    box-shadow: 3px 3px black;
+    border-radius: 0px;
+    outline: 2px solid black;
 }

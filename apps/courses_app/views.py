@@ -18,6 +18,13 @@ def destroy(request, id):
     #print("DELETED USER RECORD: ", id)
     return render(request,'courses_app/destroy.html', {'query' : query})
 
+def processdestroy(request, id):
+    print("WE IN PROCESS DESTROYYYYY")
+    # Deletes the row of the id that is passed in as a var and print success massage to server 
+    Course.objects.get(id=id).delete()
+    print("DELETED USER RECORD: ", id)
+    return redirect('/')
+
 def process(request, methods=['POST']):
     # pass the post data to the method we wrote and save the response in a variable called errors
     errors = Course.objects.basic_validator(request.POST)
